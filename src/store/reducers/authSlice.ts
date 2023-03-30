@@ -26,6 +26,7 @@ export const authSlice = createSlice({
 			state.isAuth = true;
 		});
 		builder.addCase(userLogin.rejected, (state, { payload }) => {
+			// server or user Error
 			state.status = payload == 404 ? authStatus.SERVER_ERR : authStatus.ERROR;
 		});
 	}

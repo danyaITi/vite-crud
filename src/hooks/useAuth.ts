@@ -1,5 +1,5 @@
 import { useDispatch } from 'react-redux';
-import { setAuth } from '../store/reducers/authSlice';
+import { setAuth } from 'store/reducers/authSlice';
 
 export const useAuth = () => {
 	const dispatch = useDispatch();

@@ -3,11 +3,13 @@ import Modal from '@mui/material/Modal';
 import Button from '@mui/material/Button';
 import TextField from '@mui/material/TextField';
 
-import { Controller, useForm } from 'react-hook-form';
-import { INewItem } from '../types/types';
-import { useEffect, useRef, useState } from 'react';
+import { memo, useEffect, useRef, useState } from 'react';
 import { useMutation, useQueryClient } from 'react-query';
-import { useTable } from '../hooks/useTable';
+import { Controller, useForm } from 'react-hook-form';
+
+import { useTable } from 'hooks/useTable';
+import { INewItem } from '../types/types';
+
 import { Error } from './Error';
 import { Loading } from './Loading';
 
@@ -25,16 +27,21 @@ export const style = {
 	p: 4
 };
 
-export const ModalCreate: React.FC = () => {
+export const ModalCreate: React.FC = memo(() => {
+	// React hooks
 	const [open, setOpen] = useState<boolean>(false);
 	const ref = useRef<HTMLFormElement>();
 
+	//react-hook-from
 	const { handleSubmit, control } = useForm<INewItem>();
 
+	// custom hook
 	const { createItem } = useTable();
 
+	// react-query
 	const queryClient = useQueryClient();
 
+	// create
 	const {
 		mutate: handleCreate,
 		isLoading,
@@ -262,4 +269,4 @@ export const ModalCreate: React.FC = () => {
 			</Modal>
 		</div>
 	);
-};
+});

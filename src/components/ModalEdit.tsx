@@ -6,26 +6,34 @@ import EditIcon from '@mui/icons-material/Edit';
 
 import { Controller, useForm } from 'react-hook-form';
 import { memo, useEffect, useRef, useState } from 'react';
-import { INewItem, ItemTable } from '../types/types';
 import { useMutation, useQueryClient } from 'react-query';
-import { useTable } from '../hooks/useTable';
+
 import { Loading } from './Loading';
 import { Error } from './Error';
 import { style } from './ModalCreate';
 
+import { useTable } from 'hooks/useTable';
+import { INewItem, ItemTable } from 'types/types';
+
 interface ModalEditProps {
-	data: ItemTable | undefined;
+	data: ItemTable;
 }
 
 export const ModalEdit: React.FC<ModalEditProps> = memo(({ data }) => {
+	// react hooks
 	const [open, setOpen] = useState<boolean>(false);
 	const ref = useRef<HTMLFormElement>();
 
+	// custom hooks
 	const { editItem } = useTable();
+
+	// react-hooks-form
 	const { handleSubmit, control } = useForm<INewItem>();
 
+	// react-query
 	const queryClient = useQueryClient();
 
+	// edit
 	const {
 		mutate: handleEdit,
 		isLoading,

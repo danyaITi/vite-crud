@@ -1,6 +1,6 @@
-import $api from '../api/wrapper';
-import { URLS } from '../constants/urls';
-import { INewItem } from '../types/types';
+import $api from 'api/wrapper';
+import { URLS } from 'constants/urls';
+import { INewItem } from 'types/types';
 
 export const useTable = () => {
 	const fetchData = async () => {

@@ -8,14 +8,16 @@ import TableCell from '@mui/material/TableCell';
 import DeleteOutlinedIcon from '@mui/icons-material/DeleteOutlined';
 
 import { useMutation, useQuery, useQueryClient } from 'react-query';
-import { useTable } from '../hooks/useTable';
-import { IDataTable } from '../types/types';
-import { Row } from '../components/Row';
-import { Error } from '../components/Error';
-import { Loading } from '../components/Loading';
-import { ModalCreate } from '../components/ModalCreate';
+
 import { Fragment } from 'react';
-import { ModalEdit } from '../components/ModalEdit';
+import { useTable } from 'hooks/useTable';
+import { IDataTable } from 'types/types';
+
+import { Loading } from 'components/Loading';
+import { Error } from 'components/Error';
+import { ModalCreate } from 'components/ModalCreate';
+import { ModalEdit } from 'components/ModalEdit';
+import { Row } from 'components/Row';
 
 const columns = [
 	'companySigDate',

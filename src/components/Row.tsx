@@ -2,7 +2,7 @@ import TableCell from '@mui/material/TableCell';
 import TableRow from '@mui/material/TableRow';
 
 import { memo } from 'react';
-import { ItemTable } from '../types/types';
+import { ItemTable } from 'types/types';
 
 interface RowProps {
 	data: ItemTable;

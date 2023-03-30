@@ -6,15 +6,17 @@ import Box from '@mui/material/Box';
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
-import { Alert, Grid, Stack } from '@mui/material';
+import { Alert, Stack } from '@mui/material';
 
-import { Link, Navigate } from 'react-router-dom';
+import { Navigate } from 'react-router-dom';
 import { useForm, Controller } from 'react-hook-form';
-import { IUser } from '../types/types';
+
 import { useSelector } from 'react-redux';
-import { RootState, useAppDispatch } from '../store/store';
-import { userLogin } from '../store/api/auth.api';
-import { Loading } from '../components/Loading';
+import { RootState, useAppDispatch } from 'store/store';
+import { userLogin } from 'store/api/auth.api';
+
+import { IUser } from 'types/types';
+import { Loading } from 'components/Loading';
 
 export const Login = () => {
 	const status = useSelector((state: RootState) => state.auth.status);
